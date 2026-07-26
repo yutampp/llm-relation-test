@@ -1,0 +1,15 @@
+# 秘密情報
+.env
+
+# 仮想環境
+venv/
+.venv/
+
+# 出力ログ・自動生成ファイル
+議事_*.txt
+RSS_*.txt
+portfolio.csv
+
+# Pythonキャッシュ
+__pycache__/
+*.pyc
