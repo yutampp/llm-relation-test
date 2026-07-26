@@ -26,32 +26,47 @@
 ### 2. ポートフォリオデータの準備 (portfolio.csv)
 証券会社等からダウンロードしたポートフォリオデータ（CSV形式）を `portfolio.csv` というファイル名でルートディレクトリに配置します。
 
+### 3. 自動実行用ファイルの準備 (kick.bat) ※Windowsの場合
+Windows環境で毎朝自動実行したい場合は、プロジェクトのルートディレクトリに `kick.bat` という名前のファイルを作成し、以下の内容を記述します。
+
+    @echo off
+    cd /d %~dp0
+    call venv\Scripts\activate
+    python app.py
+    pause
+
 ---
 
 ## 🚀 起動方法
 
+### 手動で実行する場合
+
 ターミナル（またはコマンドプロンプト）を開き、以下の手順で実行します。
 
-### 1. 仮想環境の作成・有効化
+1. 仮想環境の作成・有効化
 
-Mac / Linux の場合:
-    python3 -m venv venv
-    source venv/bin/activate
+   Mac / Linux の場合:
+       python3 -m venv venv
+       source venv/bin/activate
 
-Windows の場合:
-    python -m venv venv
-    venv\Scripts\activate
+   Windows の場合:
+       python -m venv venv
+       venv\Scripts\activate
 
-### 2. pipの更新・依存パッケージのインストール（初期セットアップ）
+2. pipの更新・依存パッケージのインストール（初期セットアップ）
 
-初回実行時やパッケージの初期化を行う際は、まず pip（パッケージ管理ツール）を最新に更新してから依存ライブラリをインストールします。
+   初回実行時やパッケージの初期化を行う際は、まず pip（パッケージ管理ツール）を最新に更新してから依存ライブラリをインストールします。
 
-    python -m pip install --upgrade pip
-    pip install -r requirements.txt
+       python -m pip install --upgrade pip
+       pip install -r requirements.txt
 
-### 3. プログラムの実行
+3. プログラムの実行
 
-    python app.py
+       python app.py
+
+### 自動で毎朝実行する場合 (Windows)
+
+Windowsであれば、作成した `kick.bat` を**タスクスケジューラ**に登録して毎朝（例：朝7:00など）自動で動かす設定をしておくと便利です。
 
 ---
 
