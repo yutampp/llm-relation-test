@@ -23,8 +23,9 @@
 
 ※ DISCORD_WEBHOOK_URL は任意です（Discordへレポートを自動送信したい場合のみ設定）。
 
-### 2. ポートフォリオデータの準備 (portfolio.csv)
-証券会社等からダウンロードしたポートフォリオデータ（CSV形式）を `portfolio.csv` というファイル名でルートディレクトリに配置します。
+### 2. (任意）外部データの準備 (data.csv)
+証券会社等からダウンロードしたポートフォリオデータなどを `data.csv` というファイル名でルートディレクトリに配置します。
+ app.pyの ---外部データ読み込みの設定 (必要に応じて True / False を切り替え) --- の部分を編集しましょう。
 
 ### 3. 自動実行用ファイルの準備 (kick.bat) ※Windowsの場合
 Windows環境で毎朝自動実行したい場合は、プロジェクトのルートディレクトリに `kick.bat` という名前のファイルを作成し、以下の内容を記述します。
@@ -57,8 +58,8 @@ Windows環境で毎朝自動実行したい場合は、プロジェクトのル�
 
    初回実行時やパッケージの初期化を行う際は、まず pip（パッケージ管理ツール）を最新に更新してから依存ライブラリをインストールします。
 
-       python -m pip install --upgrade pip
-       pip install -r requirements.txt
+       (venv) python -m pip install --upgrade pip
+       (venv) pip install -r requirements.txt
 
 3. プログラムの実行
 
@@ -74,5 +75,5 @@ Windowsであれば、作成した `kick.bat` を**タスクスケジューラ**
 
 実行が成功すると、以下のファイルが自動作成・更新されます：
 
-・ RSS_YYYYMMDD_HHMM.txt : 取得した最新のファイナンスニュース
+・ RSS_YYYYMMDD_HHMM.txt : 取得した最新のニュース
 ・ 議事_YYYYMMDD_HHMM.txt : アナリスト同士の討論ログおよび最終レポート（次回実行時に過去コンテキストとして自動読み込みされます）
